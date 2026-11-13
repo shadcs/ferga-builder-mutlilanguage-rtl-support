@@ -1,0 +1,36 @@
+name: Bug report
+description: Something doesn't work as expected.
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: Steps, block JSON or a minimal code sample.
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: Ferga-Builder version
+    validations:
+      required: true
+  - type: input
+    id: filament-version
+    attributes:
+      label: Filament / Laravel / PHP versions
+      placeholder: Filament 5.11, Laravel 12, PHP 8.3
+    validations:
+      required: true
+  - type: input
+    id: locales
+    attributes:
+      label: Content languages (and which are RTL)
+      placeholder: en, ar (RTL), ku (RTL), cn

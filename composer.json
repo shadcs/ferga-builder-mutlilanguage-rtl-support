@@ -1,0 +1,76 @@
+{
+    "name": "ferga/filament-builder",
+    "description": "Drag-and-drop visual page builder for Filament with multilingual content, RTL support (Arabic, Kurdish, Persian, Hebrew) and ready-made templates.",
+    "keywords": [
+        "filament",
+        "filament-plugin",
+        "filamentphp",
+        "laravel",
+        "page-builder",
+        "visual-editor",
+        "blocks",
+        "templates",
+        "multilingual",
+        "translations",
+        "rtl",
+        "arabic",
+        "kurdish",
+        "chinese"
+    ],
+    "homepage": "https://github.com/ferga/filament-builder",
+    "support": {
+        "issues": "https://github.com/ferga/filament-builder/issues",
+        "source": "https://github.com/ferga/filament-builder"
+    },
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ferga Solutions",
+            "homepage": "https://github.com/ferga",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "filament/filament": "^4.13|^5.8",
+        "illuminate/contracts": "^11.28|^12.0|^13.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+        "pestphp/pest-plugin-livewire": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ferga\\FilamentBuilder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ferga\\FilamentBuilder\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "format": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --test"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ferga\\FilamentBuilder\\FergaBuilderServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
