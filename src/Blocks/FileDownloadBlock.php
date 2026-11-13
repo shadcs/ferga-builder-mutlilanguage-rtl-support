@@ -35,7 +35,21 @@ class FileDownloadBlock extends Block
     public function schema(): array
     {
         return [
-            $this->upload('file')->preserveFilenames()->maxSize(51200)->required(),
+            $this->upload('file')
+                ->acceptedFileTypes([
+                    'application/pdf',
+                    'text/plain',
+                    'text/csv',
+                    'application/rtf',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'application/vnd.ms-excel',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'application/vnd.ms-powerpoint',
+                    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                ])
+                ->maxSize(51200)
+                ->required(),
             TextInput::make('label')->label(static::t('fields.label'))->required(),
             TextInput::make('description')->label(static::t('fields.description')),
         ];

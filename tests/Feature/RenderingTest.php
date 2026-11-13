@@ -1,5 +1,7 @@
 <?php
 
+use Ferga\FilamentBuilder\Blocks\FileDownloadBlock;
+use Ferga\FilamentBuilder\Blocks\ImageBlock;
 use Ferga\FilamentBuilder\FergaBuilder;
 use Ferga\FilamentBuilder\Rendering\RenderContext;
 use Ferga\FilamentBuilder\Tests\Fixtures\Models\Page;
@@ -61,6 +63,48 @@ it('escapes plain-text fields', function () {
     expect(render(['en' => [['type' => 'heading', 'data' => ['text' => '<script>alert(1)</script>']]]]))
         ->not->toContain('<script>')
         ->toContain('&lt;script&gt;');
+});
+
+it('sanitizes rich HTML strings in rich text blocks', function () {
+    $unsafeBody = '<p>Safe content</p><script>alert(1)</script><img src="x" onerror="alert(1)">';
+    $html = render(['en' => [
+        ['type' => 'rich_text', 'data' => ['body' => $unsafeBody]],
+        ['type' => 'image_text', 'data' => ['body' => $unsafeBody]],
+    ]]);
+
+    expect($html)
+        ->toContain('<p>Safe content</p>')
+        ->not->toContain('<script', 'onerror=');
+});
+
+it('rejects unsafe schemes in block links', function () {
+    $html = render(['en' => [
+        ['type' => 'button', 'data' => ['label' => 'Button', 'url' => 'JaVaScRiPt:alert(1)']],
+        ['type' => 'button', 'data' => ['label' => 'Safe button', 'url' => '/safe']],
+        ['type' => 'hero', 'data' => ['title' => 'Hero', 'primary_label' => 'Primary', 'primary_url' => 'javascript:alert(1)']],
+        ['type' => 'call_to_action', 'data' => ['title' => 'CTA', 'secondary_label' => 'Secondary', 'secondary_url' => 'javascript:alert(1)']],
+        ['type' => 'cards', 'data' => ['items' => [['title' => 'Card', 'link_label' => 'Read', 'url' => 'javascript:alert(1)']]]],
+        ['type' => 'image_text', 'data' => ['button_label' => 'More', 'button_url' => 'javascript:alert(1)']],
+        ['type' => 'image', 'data' => ['image' => 'safe.jpg', 'link' => 'javascript:alert(1)']],
+    ]]);
+
+    expect($html)->not->toContain('javascript:')
+        ->toContain('href="#"', 'href="/safe"');
+    expect(app(FergaBuilder::class)->url('data:text/html,<script>alert(1)</script>'))->toBeNull();
+});
+
+it('limits uploads to safe document and raster image types', function () {
+    $fileUpload = (new FileDownloadBlock)->schema()[0];
+    $fileTypes = $fileUpload->getAcceptedFileTypes();
+    $imageTypes = (new ImageBlock)->schema()[0]->getAcceptedFileTypes();
+
+    expect($fileTypes)
+        ->toContain('application/pdf')
+        ->not->toContain('text/html', 'image/svg+xml', 'application/javascript')
+        ->and($fileUpload->shouldPreserveFilenames())->toBeFalse()
+        ->and($imageTypes)
+        ->toContain('image/jpeg', 'image/png')
+        ->not->toContain('image/svg+xml', 'text/html');
 });
 
 it('skips empty blocks instead of rendering empty wrappers', function () {

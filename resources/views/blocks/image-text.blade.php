@@ -1,4 +1,5 @@
 <div class="fb-media-text {{ ($data['image_position'] ?? 'start') === 'end' ? 'fb-media-end' : 'fb-media-start' }}">
+    @php($buttonUrl = \Ferga\FilamentBuilder\Blocks\Block::safeUrl($data['button_url'] ?? null))
     <div class="fb-media-text-media">
         @if ($src)
             <img src="{{ $src }}" alt="{{ $data['alt'] ?? '' }}" loading="lazy" class="fb-img">
@@ -13,8 +14,8 @@
         @if (filled($html))
             <div class="fb-prose">{!! $html !!}</div>
         @endif
-        @if (filled($data['button_label'] ?? null) && filled($data['button_url'] ?? null))
-            <p><a href="{{ $data['button_url'] }}" class="fb-button fb-button-link">{{ $data['button_label'] }} {!! \Ferga\FilamentBuilder\Support\Icons::svg('heroicon-m-arrow-right') !!}</a></p>
+        @if (filled($data['button_label'] ?? null) && filled($buttonUrl))
+            <p><a href="{{ $buttonUrl }}" class="fb-button fb-button-link">{{ $data['button_label'] }} {!! \Ferga\FilamentBuilder\Support\Icons::svg('heroicon-m-arrow-right') !!}</a></p>
         @endif
     </div>
 </div>

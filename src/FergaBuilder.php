@@ -186,10 +186,10 @@ class FergaBuilder
         }
 
         if (Str::startsWith($path, ['http://', 'https://', '//', '/', 'data:'])) {
-            return $path;
+            return Str::sanitizeUrl($path);
         }
 
-        return Storage::disk($this->disk())->url($path);
+        return Str::sanitizeUrl(Storage::disk($this->disk())->url($path));
     }
 
     /**

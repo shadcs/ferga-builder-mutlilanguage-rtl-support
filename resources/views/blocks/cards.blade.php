@@ -14,8 +14,9 @@
                         @if (filled($item['text'] ?? null))
                             <p class="fb-card-text">{{ $item['text'] }}</p>
                         @endif
-                        @if (filled($item['url'] ?? null) && filled($item['link_label'] ?? null))
-                            <a href="{{ $item['url'] }}" class="fb-button fb-button-link fb-card-link">
+                        @php($url = \Ferga\FilamentBuilder\Blocks\Block::safeUrl($item['url'] ?? null))
+                        @if (filled($url) && filled($item['link_label'] ?? null))
+                            <a href="{{ $url }}" class="fb-button fb-button-link fb-card-link">
                                 <span>{{ $item['link_label'] }}</span>
                                 {!! \Ferga\FilamentBuilder\Support\Icons::svg('heroicon-m-arrow-right') !!}
                             </a>

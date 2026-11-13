@@ -214,7 +214,7 @@ FergaBuilderPlugin::make()->registerTemplates([
 | `rich_text` | text | Filament RichEditor |
 | `quote` | text | text, author, role |
 | `button` | text | filled / outline / link, arrow, new tab |
-| `image`, `image_text`, `gallery` | media | alt text, captions, links |
+| `image`, `image_text`, `gallery` | media | JPEG, PNG, GIF, and WebP uploads; alt text, captions, links |
 | `video` | media | YouTube/Vimeo links become `youtube-nocookie` / `player.vimeo.com?dnt=1` embeds |
 | `logos` | media | partner logos, grey until hovered |
 | `highlights` | content | items with Heroicons |
@@ -222,7 +222,7 @@ FergaBuilderPlugin::make()->registerTemplates([
 | `stats` | content | value + label |
 | `testimonials` | content | quote, name, role, photo (or initial) |
 | `faq` | content | native `<details>` that works without JavaScript |
-| `file_download` | content | shows file type and size |
+| `file_download` | content | PDF, text, CSV, RTF, and standard Word/Excel/PowerPoint downloads; shows file type and size |
 | `divider`, `spacer` | layout | |
 
 Every block has style options: **spacing** (`none`–`xl`), **width** (`narrow`, `normal`, `wide`, `full`), **alignment** (`start`, `center`, `end`) and **background** (`none`, `muted`, `primary`, `dark`).

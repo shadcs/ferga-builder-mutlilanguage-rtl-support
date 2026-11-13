@@ -85,6 +85,11 @@ abstract class Block implements PageBlock
         return [];
     }
 
+    public static function safeUrl(mixed $url): ?string
+    {
+        return Str::sanitizeUrl(is_string($url) ? $url : null);
+    }
+
     public function render(array $block, RenderContext $context): Htmlable|string
     {
         $data = is_array($block['data'] ?? null) ? $block['data'] : [];
@@ -167,7 +172,11 @@ abstract class Block implements PageBlock
 
     protected function image(string $name): FileUpload
     {
-        return $this->upload($name)->image()->imageEditor()->maxSize(10240);
+        return $this->upload($name)
+            ->image()
+            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+            ->imageEditor()
+            ->maxSize(10240);
     }
 
     /** Plain-text snippet from HTML, rich-editor JSON or text. */

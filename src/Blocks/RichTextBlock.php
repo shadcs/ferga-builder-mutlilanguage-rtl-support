@@ -46,10 +46,12 @@ class RichTextBlock extends Block
     {
         $body = $data['body'] ?? '';
 
-        if (is_array($body)) {
+        if ((is_string($body) || is_array($body)) && filled($body)) {
             $body = class_exists(RichContentRenderer::class)
                 ? RichContentRenderer::make($body)->toHtml()
                 : '';
+        } else {
+            $body = '';
         }
 
         return ['html' => (string) $body];

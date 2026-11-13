@@ -65,7 +65,7 @@ class ImageTextBlock extends Block
 
         return [
             'src' => app(FergaBuilder::class)->url($data['image'] ?? null),
-            'html' => is_array($body) ? (new RichTextBlock)->viewData(['body' => $body], $context)['html'] : (string) $body,
+            'html' => (new RichTextBlock)->viewData(['body' => $body], $context)['html'],
         ];
     }
 }

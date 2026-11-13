@@ -1,8 +1,9 @@
 @if ($src)
     <figure class="fb-figure">
-        @if (filled($data['link'] ?? null))<a href="{{ $data['link'] }}" class="fb-figure-link">@endif
+        @php($link = \Ferga\FilamentBuilder\Blocks\Block::safeUrl($data['link'] ?? null))
+        @if (filled($link))<a href="{{ $link }}" class="fb-figure-link">@endif
         <img src="{{ $src }}" alt="{{ $data['alt'] ?? '' }}" loading="lazy" class="fb-img">
-        @if (filled($data['link'] ?? null))</a>@endif
+        @if (filled($link))</a>@endif
         @if (filled($data['caption'] ?? null))
             <figcaption class="fb-caption">{{ $data['caption'] }}</figcaption>
         @endif
