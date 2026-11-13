@@ -1,12 +1,12 @@
 # Ferga-Builder
 
-[![Tests](https://github.com/ferga/filament-builder/actions/workflows/tests.yml/badge.svg)](https://github.com/ferga/filament-builder/actions/workflows/tests.yml)
-[![Latest version](https://img.shields.io/packagist/v/ferga/filament-builder.svg)](https://packagist.org/packages/ferga/filament-builder)
+[![Tests](https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support/actions/workflows/tests.yml/badge.svg)](https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support/actions/workflows/tests.yml)
+[![Latest version](https://img.shields.io/packagist/v/shadcs/ferga-builder-mutlilanguage-rtl-support.svg)](https://packagist.org/packages/shadcs/ferga-builder-mutlilanguage-rtl-support)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A drag-and-drop visual page builder for [Filament](https://filamentphp.com) with **multilingual content**, **right-to-left (RTL) support** and **ready-made templates**.
 
-![Ferga-Builder visual editor](https://raw.githubusercontent.com/ferga/filament-builder/main/art/cover.jpg)
+![Ferga-Builder visual editor](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/cover.jpg)
 
 - **Visual canvas:** drag blocks onto a live preview, put them in columns, then style, reorder, undo/redo and save
 - **Templates:** 11 ready-made sections and 4 full pages (landing, product, about, services). Sample text is inserted in the language you are editing.
@@ -21,16 +21,16 @@ Requires PHP 8.3+, Laravel 11.28+ / 12 / 13 and Filament 4.13+ or 5.8+.
 
 | Templates | Arabic (RTL) |
 | --- | --- |
-| ![Templates](https://raw.githubusercontent.com/ferga/filament-builder/main/art/canvas-templates.png) | ![RTL editing](https://raw.githubusercontent.com/ferga/filament-builder/main/art/canvas-rtl.png) |
+| ![Templates](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/canvas-templates.png) | ![RTL editing](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/canvas-rtl.png) |
 | **Block form in a modal** | **Dark mode** |
-| ![Edit modal](https://raw.githubusercontent.com/ferga/filament-builder/main/art/canvas-edit-modal.png) | ![Dark mode](https://raw.githubusercontent.com/ferga/filament-builder/main/art/canvas-dark.png) |
+| ![Edit modal](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/canvas-edit-modal.png) | ![Dark mode](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/canvas-dark.png) |
 
 ---
 
 ## Installation
 
 ```bash
-composer require ferga/filament-builder
+composer require shadcs/ferga-builder-mutlilanguage-rtl-support
 php artisan filament:assets
 ```
 
@@ -108,7 +108,7 @@ PageBuilder::make('content')
     // ->copyLayout(false)                        hide "Copy layout from another language"
 ```
 
-![Form field](https://raw.githubusercontent.com/ferga/filament-builder/main/art/form-field.png)
+![Form field](https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/art/form-field.png)
 
 The field has one tab per language, and right-to-left languages are edited RTL. Each tab has **Insert template** and **Copy layout from another language** buttons, and an empty language shows a note that visitors will see the default language instead.
 

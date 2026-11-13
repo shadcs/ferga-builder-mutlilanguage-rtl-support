@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `ferga/filament-builder` are documented here.
+All notable changes to `shadcs/ferga-builder-mutlilanguage-rtl-support` are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]

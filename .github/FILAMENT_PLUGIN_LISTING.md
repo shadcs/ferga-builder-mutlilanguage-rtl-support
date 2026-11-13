@@ -4,9 +4,9 @@ Plugins are submitted at **https://filamentphp.com/author** (request access to a
 
 ## Before submitting
 
-1. Create the public GitHub repository and push `main`. All URLs below use `ferga/filament-builder`; if the repo lives elsewhere, search and replace that string in this repo (README image URLs, `composer.json`, `.github/ISSUE_TEMPLATE/config.yml`).
+1. Confirm the package metadata and latest source are pushed to the public repository's `main` branch.
 2. Tag a release: `git tag v0.1.0 && git push --tags`.
-3. Submit the package on https://packagist.org/packages/submit and enable the GitHub hook so new tags appear automatically.
+3. Submit `shadcs/ferga-builder-mutlilanguage-rtl-support` on https://packagist.org/packages/submit and enable the GitHub hook so new tags appear automatically.
 4. Check that the README renders on GitHub, including the images in `art/`.
 
 ## Listing fields
@@ -17,8 +17,8 @@ Plugins are submitted at **https://filamentphp.com/author** (request access to a
 | Slug | `ferga-builder` (shown as `ferga-ferga-builder` if the author slug is `ferga`) |
 | Description | Drag-and-drop visual page builder with ready-made templates, per-language content and real RTL support (Arabic, Kurdish, Persian, Hebrew). Includes a full-screen canvas, a form field, 20 blocks, and an editor UI in English, Arabic, Kurdish and Chinese. |
 | Categories | Form Builder, Form Field, Developer Tool, Kit (pick what the form offers) |
-| GitHub repository | `ferga/filament-builder` |
-| Documentation URL | `https://raw.githubusercontent.com/ferga/filament-builder/main/README.md` |
+| GitHub repository | `shadcs/ferga-builder-mutlilanguage-rtl-support` |
+| Documentation URL | `https://raw.githubusercontent.com/shadcs/ferga-builder-mutlilanguage-rtl-support/main/README.md` |
 | Filament versions | 4, 5 |
 | Dark theme | Yes |
 | Translations | Yes (en, ar, ku/ckb, zh_CN/cn) |

@@ -1,5 +1,5 @@
 {
-    "name": "ferga/filament-builder",
+    "name": "shadcs/ferga-builder-mutlilanguage-rtl-support",
     "description": "Drag-and-drop visual page builder for Filament with multilingual content, RTL support (Arabic, Kurdish, Persian, Hebrew) and ready-made templates.",
     "keywords": [
         "filament",
@@ -17,10 +17,10 @@
         "kurdish",
         "chinese"
     ],
-    "homepage": "https://github.com/ferga/filament-builder",
+    "homepage": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support",
     "support": {
-        "issues": "https://github.com/ferga/filament-builder/issues",
-        "source": "https://github.com/ferga/filament-builder"
+        "issues": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support/issues",
+        "source": "https://github.com/shadcs/ferga-builder-mutlilanguage-rtl-support"
     },
     "license": "MIT",
     "type": "library",
